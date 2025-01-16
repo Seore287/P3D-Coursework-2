@@ -29,6 +29,17 @@ public class MainMenuManager : MonoBehaviour
             cutsceneMusic.Stop();
         }
 
+        // Handle Controls Screen logic based on PlayerPrefs
+        if (PlayerPrefs.GetInt("OpenControlsPanel", 0) == 1)
+        {
+            PlayerPrefs.SetInt("OpenControlsPanel", 0); // Reset the flag
+            OpenControlsPanel(); // Open controls panel
+        }
+        else
+        {
+            controlsScreen.SetActive(false);
+        }
+
         controlsScreen.SetActive(false);
     }
     public void StartGame()

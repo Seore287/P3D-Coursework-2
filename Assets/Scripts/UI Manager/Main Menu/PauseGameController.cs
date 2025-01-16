@@ -14,29 +14,29 @@ public class PauseGameController : MonoBehaviour
     private void Awake()
     {
         playerInput = new PlayerInput();
+        playerInput.UI.Pause.performed += _ => TogglePauseMenu();
     }
 
     private void OnEnable()
     {
-        playerInput.UI.Pause.performed += TogglePauseMenu;
-        playerInput.UI.Enable();
+        
+        playerInput.Enable();
     }
 
     private void OnDisable()
     {
-        playerInput.UI.Pause.performed -= TogglePauseMenu;
-        playerInput.UI.Disable();
+        playerInput.Disable();
     }
-    private void TogglePauseMenu(InputAction.CallbackContext context)
+
+    private void TogglePauseMenu()
     {
         if (isPaused)
         {
             ResumeGame();
-        } else
+        }
+        else
         {
-            isPaused = true;
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0f;
+            PauseGame();
         }
     }
 
@@ -45,11 +45,46 @@ public class PauseGameController : MonoBehaviour
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+
+        Cursor.visible = false; // Hide cursor when resuming the game
+        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
+    }
+
+    public void PauseGame()
+    {
+        isPaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+
+        Cursor.visible = true; // Show cursor in pause menu
+        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
     }
 
     public void BackToMainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(MainMenuScene);
+    }
+
+    public void ShowControlsPanel()
+    {
+        /*
+        pauseMenu.SetActive(false); // Hide the Pause menu
+        controlsPanel.SetActive(true); // Show the Controls panel
+
+        Cursor.visible = true; // Ensure cursor is visible
+        Cursor.lockState = CursorLockMode.None;
+        */
+
+        PlayerPrefs.SetInt("OpenControlsPanel", 1);
+        BackToMainMenu();
+    }
+
+    public void BackToPauseMenu()
+    {
+        pauseMenu.SetActive(true); // Show the Pause menu
+
+        Cursor.visible = true; // Ensure cursor is visible
+        Cursor.lockState = CursorLockMode.None;
     }
 }
