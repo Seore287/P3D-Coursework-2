@@ -28,6 +28,8 @@ public class MainMenuManager : MonoBehaviour
         {
             cutsceneMusic.Stop();
         }
+
+        controlsScreen.SetActive(false);
     }
     public void StartGame()
     {

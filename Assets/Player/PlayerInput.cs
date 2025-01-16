@@ -536,7 +536,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d6b07ed5-76f7-4d12-9deb-75b57cf9b2de"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -844,7 +844,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""29340e22-dcde-4ffc-8c5c-8b6ca54ad408"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -877,7 +877,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""da53c419-9cf3-4e9c-85c0-1a0643e27d41"",
-                    ""path"": ""<Keyboard>/j"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -921,7 +921,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c8932bdb-c31e-430a-986c-d89a71c20a5f"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/n"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
