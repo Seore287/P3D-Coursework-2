@@ -13,15 +13,15 @@ public class SwordAbility : Ability
 
         if (swordTransform != null)
         {
-            // Destroy the current sword if it exists
+
             if (currentSwordInstance != null)
             {
                 Destroy(currentSwordInstance);
             }
 
-            // Instantiate the new sword with the VFX
+
             currentSwordInstance = Instantiate(newSwordPrefab, swordTransform.position, swordTransform.rotation);
-            currentSwordInstance.transform.SetParent(swordTransform); // Make the new sword a child of the player's hand
+            currentSwordInstance.transform.SetParent(swordTransform); 
 
             Debug.Log("Sword Slash activated with new sword including VFX!");
         }

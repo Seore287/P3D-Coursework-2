@@ -13,7 +13,7 @@ public class Ability: ScriptableObject
     public virtual void Activate(GameObject player)
     {
         Debug.Log($"{abilityName} activated!");
-        // Add functionality for the ability here
+
     }
 
 }

@@ -53,7 +53,7 @@ public class AbilityManager : MonoBehaviour
 
         Ability ability = abilities[index];
 
-        // Check if the ability is compatible with the current weapon
+        
         if (currentWeapon == WeaponType.sword && !ability.CanBeUsedWithSword)
         {
             Debug.Log($"{ability.abilityName} cannot be used with the sword.");
