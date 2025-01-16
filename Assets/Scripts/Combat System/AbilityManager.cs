@@ -56,29 +56,24 @@ public class AbilityManager : MonoBehaviour
         
         if (currentWeapon == WeaponType.sword && !ability.CanBeUsedWithSword)
         {
-            Debug.Log($"{ability.abilityName} cannot be used with the sword.");
             return;
         }
         else if (currentWeapon == WeaponType.axe && !ability.CanBeUsedWithAxe)
         {
-            Debug.Log($"{ability.abilityName} cannot be used with the axe.");
             return;
         }
 
-        // Check if the ability is on cooldown
+        // Checks if the ability is on cooldown
         if (cooldownManager.IsAbilityOnCooldown(ability.abilityName))
         {
-            Debug.Log($"{ability.abilityName} is on cooldown.");
             return;
         }
 
-        // Activate the ability
+
         ability.Activate(player);
 
-        // Start the cooldown
+        // Begins the ability cooldown based on the ability
         cooldownManager.StartAbilityCooldown(ability.abilityName, ability.cooldownTime);
-
-        Debug.Log($"Activated ability: {ability.abilityName}");
     }
 
     public void SetWeaponState(WeaponType weaponType)

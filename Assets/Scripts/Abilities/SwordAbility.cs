@@ -22,8 +22,6 @@ public class SwordAbility : Ability
 
             currentSwordInstance = Instantiate(newSwordPrefab, swordTransform.position, swordTransform.rotation);
             currentSwordInstance.transform.SetParent(swordTransform); 
-
-            Debug.Log("Sword Slash activated with new sword including VFX!");
         }
         else
         {
