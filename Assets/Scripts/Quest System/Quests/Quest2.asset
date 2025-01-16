@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2728e80b2d789a45ac396b9363c3619, type: 3}
+  m_Name: Quest2
+  m_EditorClassIdentifier: 
+  QuestName: The Moonlit Hunt
+  QuestDescription: The creatures of the Celestial Oasis have become restless under
+    the full moon. Elder Lyra suspects the presence of a powerful lunar beast that
+    is disrupting the natural order. Talin must track the beast, defeat it in battle,
+    and collect its Lunar Essence to restore balance to the oasis.
+  Objectives:
+  - Tasks: "Follow the signs of the lunar beast\u2019s passage."
+    isCompleted: 0
+  - Tasks: Battle the lunar beast using strategy and elemental powers.
+    isCompleted: 0
+  - Tasks: "Harvest the Lunar Essence from the beast\u2019s body."
+    isCompleted: 0
+  XP: 50
+  reward: {fileID: 0}
+  isCompleted: 0
+  Progress: 0
