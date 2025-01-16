@@ -6,6 +6,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public string cutScene;
     public GameObject optionsScreen;
+    public GameObject controlsScreen;
     public LoadingManager LoadingManager;
 
     public AudioSource buttonClick;
@@ -47,6 +48,24 @@ public class MainMenuManager : MonoBehaviour
     {
         ActivateSound();
         optionsScreen.SetActive(false);
+    }
+
+    public void OpenControlsPanel()
+    {
+        ActivateSound();
+        if (controlsScreen != null)
+        {
+            controlsScreen.SetActive(true); // Activate the controls panel
+        }
+    }
+
+    public void CloseControlsPanel()
+    {
+        ActivateSound();
+        if (controlsScreen != null)
+        {
+            controlsScreen.SetActive(false); // Deactivate the controls panel
+        }
     }
 
     private void ActivateSound()
