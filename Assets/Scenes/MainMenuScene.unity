@@ -1628,6 +1628,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467848132}
   m_CullTransparentMesh: 1
+--- !u!1 &481963310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5816202622285486081, guid: b21f66eae7bad3a428df1d817920d140,
+    type: 3}
+  m_PrefabInstance: {fileID: 183394132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &505185944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,6 +3241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutScene: Cutscene
+  startButton: {fileID: 2126757115}
+  resumeButton: {fileID: 481963310}
   optionsScreen: {fileID: 1179955202}
   controlsScreen: {fileID: 360849917}
   LoadingManager: {fileID: 505185946}
@@ -6615,6 +6623,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5926514227256299456, guid: b21f66eae7bad3a428df1d817920d140,
     type: 3}
   m_PrefabInstance: {fileID: 2023537857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2126757115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5816202622285486081, guid: b21f66eae7bad3a428df1d817920d140,
+    type: 3}
+  m_PrefabInstance: {fileID: 3646063296470938574}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2804763775736444805
 PrefabInstance:

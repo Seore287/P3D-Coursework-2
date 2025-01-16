@@ -69,6 +69,7 @@ public class PauseGameController : MonoBehaviour
     public void ShowControlsPanel()
     {
         PlayerPrefs.SetInt("OpenControlsPanel", 1);
+        PlayerPrefs.SetInt("FromPauseMenu", 1);
         BackToMainMenu();
     }
 

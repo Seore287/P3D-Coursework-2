@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     public string cutScene;
+    public GameObject startButton;
+    public GameObject resumeButton;
     public GameObject optionsScreen;
     public GameObject controlsScreen;
     public LoadingManager LoadingManager;
@@ -17,23 +19,34 @@ public class MainMenuManager : MonoBehaviour
     
     public void Start()
     {
-        // Ensure the background music continues playing across scenes
         if (mainmenuMusic != null)
         {
             DontDestroyOnLoad(mainmenuMusic.gameObject);
         }
 
-        // Ensure cutscene music is not playing initially
         if (cutsceneMusic != null)
         {
             cutsceneMusic.Stop();
         }
 
-        // Handle Controls Screen logic based on PlayerPrefs
+        // Handle button visibility based on PlayerPrefs
+        if (PlayerPrefs.GetInt("FromPauseMenu", 0) == 1)
+        {
+            PlayerPrefs.SetInt("FromPauseMenu", 0); 
+            startButton.SetActive(false);       
+            resumeButton.SetActive(true);         
+        }
+        else
+        {
+            startButton.SetActive(true);           
+            resumeButton.SetActive(false);         
+        }
+
+   
         if (PlayerPrefs.GetInt("OpenControlsPanel", 0) == 1)
         {
             PlayerPrefs.SetInt("OpenControlsPanel", 0); // Reset the flag
-            OpenControlsPanel(); // Open controls panel
+            OpenControlsPanel();
         }
         else
         {
@@ -68,7 +81,7 @@ public class MainMenuManager : MonoBehaviour
         ActivateSound();
         if (controlsScreen != null)
         {
-            controlsScreen.SetActive(true); // Activate the controls panel
+            controlsScreen.SetActive(true); 
         }
     }
 
@@ -77,7 +90,7 @@ public class MainMenuManager : MonoBehaviour
         ActivateSound();
         if (controlsScreen != null)
         {
-            controlsScreen.SetActive(false); // Deactivate the controls panel
+            controlsScreen.SetActive(false); 
         }
     }
 
@@ -123,6 +136,11 @@ public class MainMenuManager : MonoBehaviour
 
             cutsceneMusic.volume = 1;
         }
+    }
+
+    public void ResumeGame()
+    {
+        SceneManager.LoadScene(1); 
     }
 
     public void ExitGame()
