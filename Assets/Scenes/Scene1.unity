@@ -485,9 +485,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 711983223}
+      - m_Target: {fileID: 1225884195}
         m_TargetAssemblyTypeName: PauseGameController, Assembly-CSharp
-        m_MethodName: ResumeGame
+        m_MethodName: ShowControlsPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3640,7 +3640,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 512335863}
   m_Direction: 2
   m_Value: -0.0000034661641
-  m_Size: 0.81891584
+  m_Size: 0.8189169
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6453,7 +6453,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 2109190881}
-  controlsPanel: {fileID: 0}
   isPaused: 0
   MainMenuScene: MainMenuScene
 --- !u!1 &720816547
@@ -12223,8 +12222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 2109190881}
-  controlsPanel: {fileID: 686984221845993796, guid: 2110252678475b94dabf6f7d7699ca39,
-    type: 3}
   isPaused: 0
   MainMenuScene: MainMenuScene
 --- !u!1 &1243507182
@@ -14642,7 +14639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0.98, y: 1}
-  m_AnchoredPosition: {x: 0.00089367124, y: 193.69797}
+  m_AnchoredPosition: {x: 0.0010330187, y: 193.698}
   m_SizeDelta: {x: -28.999992, y: 677}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1550411072
@@ -31861,7 +31858,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 519205417}
   m_HandleRect: {fileID: 519205416}
   m_Direction: 0
-  m_Value: -0.000040811687
+  m_Value: -0.000046641926
   m_Size: 0.97001827
   m_NumberOfSteps: 0
   m_OnValueChanged:

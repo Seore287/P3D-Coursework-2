@@ -68,14 +68,6 @@ public class PauseGameController : MonoBehaviour
 
     public void ShowControlsPanel()
     {
-        /*
-        pauseMenu.SetActive(false); // Hide the Pause menu
-        controlsPanel.SetActive(true); // Show the Controls panel
-
-        Cursor.visible = true; // Ensure cursor is visible
-        Cursor.lockState = CursorLockMode.None;
-        */
-
         PlayerPrefs.SetInt("OpenControlsPanel", 1);
         BackToMainMenu();
     }
