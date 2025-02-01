@@ -3,7 +3,7 @@ using UnityEngine;
 public class InventoryToggle : MonoBehaviour
 {
     [Header("References")]
-    public GameObject inventoryUI;  // Reference to the inventory UI panel
+    public GameObject inventoryUI; 
 
     private PlayerInput playerInput;
 
@@ -26,7 +26,6 @@ public class InventoryToggle : MonoBehaviour
 
     public void ToggleInventory()
     {
-        // Toggle the inventory panel active state
         bool isActive = !inventoryUI.activeSelf;
         inventoryUI.SetActive(isActive);
     }

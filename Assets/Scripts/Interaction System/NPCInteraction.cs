@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemInteraction : MonoBehaviour
+public class NPCInteraction : MonoBehaviour
 {
     [Header("Dialogue References")]
     public DialogueLine[] dialogueLines; 
@@ -9,7 +9,7 @@ public class ItemInteraction : MonoBehaviour
     private bool isDialogueActive = false;  
 
     [Header("UI Settings")]
-    public GameObject uiPrompt;  
+    public GameObject[] uiPrompts;  
     private PlayerInput playerInput;
 
     private void Awake()
@@ -30,17 +30,18 @@ public class ItemInteraction : MonoBehaviour
 
     private void Start()
     {
-        // Find the DialogueManager in the scene
         dialogueManager = FindObjectOfType<DialogueManager>();
         if (dialogueManager == null)
         {
             Debug.LogError("DialogueManager not found in the scene!");
         }
 
-        // Ensure the UI prompt is hidden at the start
-        if (uiPrompt != null)
+        if (uiPrompts != null)
         {
-            uiPrompt.SetActive(false);
+            foreach (GameObject prompt in uiPrompts)
+            {
+                prompt.SetActive(false);
+            }
         }
     }
 
@@ -91,9 +92,19 @@ public class ItemInteraction : MonoBehaviour
     private void DisplayUIPrompt(bool showPrompt)
     {
         // Show or hide the UI prompt based on player proximity
-        if (uiPrompt != null)
+        if (showPrompt) 
         {
-            uiPrompt.SetActive(showPrompt);
+            foreach (GameObject prompt in uiPrompts) 
+            {
+                prompt.SetActive(true);
+            }
+        }
+        else 
+        {
+            foreach (GameObject prompt in uiPrompts) 
+            {
+                prompt.SetActive(false);
+            }
         }
     }
 }

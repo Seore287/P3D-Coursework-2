@@ -7,19 +7,18 @@ using UnityEngine.UI;
 public class QuestDialogueManager : MonoBehaviour
 {
     [Header("UI References")]
-    public TMP_Text dialogueText;           // Text field for dialogue
-    public GameObject questDialoguePanel;   // Panel for quest-specific dialogue
-    public Button nextButton;               // Button to go to the next dialogue line
+    public TMP_Text dialogueText;           
+    public GameObject questDialoguePanel;   
+    public Button nextButton;              
 
     [Header("Settings")]
-    public float typingSpeed = 0.05f;       // Speed of text typing effect
+    public float typingSpeed = 0.05f;   
 
-    private Queue<string> dialogueLines = new Queue<string>(); // Queue to store dialogue lines
-    private bool isTyping = false;          // Tracks if text is being typed
+    private Queue<string> dialogueLines = new Queue<string>();
+    private bool isTyping = false;   
 
     private void Start()
     {
-        // Ensure the dialogue panel and button are initially inactive
         if (questDialoguePanel != null)
         {
             questDialoguePanel.SetActive(false);
@@ -27,13 +26,13 @@ public class QuestDialogueManager : MonoBehaviour
 
         if (dialogueText != null)
         {
-            dialogueText.text = ""; // Clear any placeholder text
+            dialogueText.text = ""; 
         }
 
         if (nextButton != null)
         {
-            nextButton.gameObject.SetActive(false); // Hide the button initially
-            nextButton.onClick.AddListener(ShowNextLine); // Assign button functionality
+            nextButton.gameObject.SetActive(false); 
+            nextButton.onClick.AddListener(ShowNextLine); 
         }
     }
 
@@ -47,7 +46,6 @@ public class QuestDialogueManager : MonoBehaviour
             dialogueLines.Enqueue(line);
         }
 
-        // Activate the dialogue panel and button
         if (questDialoguePanel != null)
         {
             questDialoguePanel.SetActive(true);
@@ -62,26 +60,25 @@ public class QuestDialogueManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        ShowNextLine(); // Display the first line
+        ShowNextLine(); 
     }
 
-    // Show the next line of dialogue
     public void ShowNextLine()
     {
         if (isTyping)
         {
-            StopAllCoroutines();  // Stop typing if currently in progress
-            dialogueText.text = dialogueLines.Peek(); // Immediately display the current line
-            isTyping = false;    // Mark typing as complete
+            StopAllCoroutines();  
+            dialogueText.text = dialogueLines.Peek(); 
+            isTyping = false;   
         }
         else if (dialogueLines.Count > 0)
         {
-            string nextLine = dialogueLines.Dequeue(); // Get the next line
-            StartCoroutine(TypeText(nextLine));        // Start typing the line
+            string nextLine = dialogueLines.Dequeue(); 
+            StartCoroutine(TypeText(nextLine));        
         }
         else
         {
-            EndDialogue(); // No more lines, end the dialogue
+            EndDialogue(); 
         }
     }
 
@@ -89,31 +86,30 @@ public class QuestDialogueManager : MonoBehaviour
     private IEnumerator TypeText(string textToType)
     {
         isTyping = true;
-        dialogueText.text = ""; // Clear current text
+        dialogueText.text = ""; 
 
         foreach (char letter in textToType.ToCharArray())
         {
-            dialogueText.text += letter; // Add each letter
-            yield return new WaitForSeconds(typingSpeed); // Wait before the next letter
+            dialogueText.text += letter; 
+            yield return new WaitForSeconds(typingSpeed); 
         }
 
-        isTyping = false; // Typing is complete
+        isTyping = false; 
     }
 
-    // End the dialogue and deactivate UI elements
     private void EndDialogue()
     {
         if (questDialoguePanel != null)
         {
-            questDialoguePanel.SetActive(false); // Deactivate the panel
+            questDialoguePanel.SetActive(false); 
         }
 
         if (nextButton != null)
         {
-            nextButton.gameObject.SetActive(false); // Deactivate the button
+            nextButton.gameObject.SetActive(false); 
         }
 
-        dialogueText.text = ""; // Clear the text
+        dialogueText.text = ""; 
 
         // Deactivate the cursor after the dialogue ends
         Cursor.lockState = CursorLockMode.Locked;
