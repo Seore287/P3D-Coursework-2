@@ -17,11 +17,11 @@ public class PlayerStats : MonoBehaviour
 
     private int currentHealth;
     private int currentStamina;
-    private int currentXP = 0; // Player's current XP
+    private int currentXP = 0; 
 
     private Animator animator;
 
-    // Flag to track if the death animation has been triggered
+
     private bool hasDied = false;
 
     // Public properties to expose health, stamina, and XP values
@@ -66,10 +66,16 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Adds XP to the player's current XP.
-    /// </summary>
-    /// <param name="xp">Amount of XP to add.</param>
+    public void Heal(int amount)
+    {
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+    }
+
+    public void RegenerateStamina(int amount)
+    {
+        currentStamina = Mathf.Min(currentStamina + amount, maxStamina);
+    }
+
     public void AddXP(int xp)
     {
         currentXP += xp;
@@ -81,31 +87,29 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Handles player leveling up and resets XP for the new level.
-    /// </summary>
     private void LevelUp()
     {
         currentXP -= maxXP; // Carry over excess XP to the next level
         maxXP += 50;        // Example: Increase max XP for each level
-        Debug.Log("Level Up! New Max XP: " + maxXP);
-        // Add level-up rewards or effects here
     }
 
-    public void Heal(int amount)
-    {
-        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-    }
-
-    public void RegenerateStamina(int amount)
-    {
-        currentStamina = Mathf.Min(currentStamina + amount, maxStamina);
-    }
 
     public void TakeDamage(int damage)
     {
+        if (animator != null) 
+        {
+            animator.SetTrigger("Hit");
+            StartCoroutine(ResetAnimation());
+        }
+
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
+    }
+
+    private IEnumerator ResetAnimation() 
+    {
+        yield return new WaitForSeconds(1f);
+        animator.ResetTrigger("Hit");
     }
 
     private void Die()

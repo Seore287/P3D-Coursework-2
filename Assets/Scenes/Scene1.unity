@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 512335864}
   m_HandleRect: {fileID: 512335863}
   m_Direction: 2
-  m_Value: -0.0000034661641
+  m_Value: -0.0000009453175
   m_Size: 0.8189169
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14639,7 +14639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0.98, y: 1}
-  m_AnchoredPosition: {x: 0.0010330187, y: 193.698}
+  m_AnchoredPosition: {x: 0.000095062365, y: 193.69743}
   m_SizeDelta: {x: -28.999992, y: 677}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1550411072
@@ -31858,7 +31858,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 519205417}
   m_HandleRect: {fileID: 519205416}
   m_Direction: 0
-  m_Value: -0.000046641926
+  m_Value: -0.0000029151204
   m_Size: 0.97001827
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -44452,6 +44452,11 @@ PrefabInstance:
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 1913674811}
+    - target: {fileID: 6484710848817889250, guid: 80f9eab024c8658458184b72d2ffde7e,
+        type: 3}
+      propertyPath: healthRecoveryRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6942159428104245268, guid: 80f9eab024c8658458184b72d2ffde7e,
         type: 3}
       propertyPath: m_Intensity

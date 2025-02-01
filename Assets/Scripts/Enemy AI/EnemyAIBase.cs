@@ -145,33 +145,39 @@ public class EnemyAIBase : MonoBehaviour
     }
 
     private void AttackBehavior()
+{
+    if (!isAttacking)
     {
-        if (!isAttacking)
+        isAttacking = true;
+        enemyAgent.isStopped = true;
+        enemyAgent.SetDestination(transform.position);  // Stop moving while attacking
+
+        int attackType = Random.Range(0, 2);
+        animator.SetFloat("AttackType", attackType);
+        animator.SetTrigger("Attack");
+
+        StartCoroutine(PerformAttack());
+    }
+}
+
+private IEnumerator PerformAttack()
+{
+    yield return new WaitForSeconds(0.5f); // Adjust timing to match attack animation
+    if (Vector3.Distance(transform.position, player.position) <= attackRange)
+    {
+        if (player.TryGetComponent<PlayerStats>(out var playerStats))
         {
-            isAttacking = true;
-
-            enemyAgent.isStopped = true;
-            enemyAgent.SetDestination(transform.position);  // Stop moving while attacking
-
-            int attackType = Random.Range(0, 2);
-            animator.SetFloat("AttackType", attackType);
-            animator.SetTrigger("Attack");
-
-            if (Vector3.Distance(transform.position, player.position) <= attackRange)
-            {
-                var playerCombat = player.GetComponent<PlayerCombat>();
-                if (playerCombat != null && !playerCombat.ShieldCollider.enabled)
-                {
-                    if (player.TryGetComponent<PlayerStats>(out var playerStats))
-                    {
-                        playerStats.TakeDamage(playerDamage);
-                    }
-                }
-            }
-
-            StartCoroutine(ResetAttack());
+            Debug.Log("Enemy hit the player!");
+            playerStats.TakeDamage(playerDamage);
         }
     }
+    yield return new WaitForSeconds(0.5f); // Give some delay before attacking again
+    isAttacking = false;
+    enemyAgent.isStopped = false;
+}
+
+
+
 
     private void NextPatrolPoint()
     {
