@@ -18,13 +18,12 @@ MonoBehaviour:
     is disrupting the natural order. Talin must track the beast, defeat it in battle,
     and collect its Lunar Essence to restore balance to the oasis.
   Objectives:
-  - Tasks: "Follow the signs of the lunar beast\u2019s passage."
+  - Tasks: Follow the signs of the Shadow Wolves passage.
     isCompleted: 0
-  - Tasks: Battle the lunar beast using strategy and elemental powers.
+  - Tasks: Battle the Shadow Wolves using strategy and elemental powers.
     isCompleted: 0
   - Tasks: "Harvest the Lunar Essence from the beast\u2019s body."
     isCompleted: 0
   XP: 50
-  reward: {fileID: 0}
   isCompleted: 0
   Progress: 0
