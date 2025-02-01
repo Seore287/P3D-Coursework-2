@@ -3643,8 +3643,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 512335864}
   m_HandleRect: {fileID: 512335863}
   m_Direction: 2
-  m_Value: -0.00000031510584
-  m_Size: 0.8189169
+  m_Value: 0.00000031510584
+  m_Size: 0.81891596
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5018,7 +5018,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545692686}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0147749605, y: -0.7173824, z: -0.015221017, w: 0.69635665}
+  m_LocalRotation: {x: -0.014774951, y: -0.71738243, z: -0.015221068, w: 0.6963566}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11848,7 +11848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127366494}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03471324, y: -0.7166523, z: -0.035761397, w: 0.6956477}
+  m_LocalRotation: {x: -0.03471326, y: -0.7166522, z: -0.035761397, w: 0.6956477}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14808,7 +14808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0.98, y: 1}
-  m_AnchoredPosition: {x: 0.0010352993, y: 193.69736}
+  m_AnchoredPosition: {x: 0.001024879, y: 193.69727}
   m_SizeDelta: {x: -28.999992, y: 677}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1550411072
@@ -37605,7 +37605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874308409}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.005308266, y: -0.71752304, z: 0.005468511, w: 0.6964931}
+  m_LocalRotation: {x: 0.005308207, y: -0.7175231, z: 0.005468484, w: 0.6964931}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44543,6 +44543,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 813028652691389020, guid: 80f9eab024c8658458184b72d2ffde7e,
+        type: 3}
+      propertyPath: maxSlots
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1203693268544879655, guid: 80f9eab024c8658458184b72d2ffde7e,
         type: 3}
       propertyPath: inventoryUI

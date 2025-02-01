@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class NPCInteraction : MonoBehaviour
+public class ItemInteraction : MonoBehaviour
 {
     [Header("Dialogue References")]
-    public DialogueLine[] dialogueLines; // Array of dialogue lines specific to this NPC
-    private DialogueManager dialogueManager; // Reference to the DialogueManager
-    private bool isPlayerNearby = false;    // Track if player is nearby to interact
-    private bool isDialogueActive = false;  // Track if dialogue is already active
+    public DialogueLine[] dialogueLines; 
+    private DialogueManager dialogueManager; 
+    private bool isPlayerNearby = false;   
+    private bool isDialogueActive = false;  
 
     [Header("UI Settings")]
-    public GameObject uiPrompt;  // UI prompt to show when player is nearby
-
+    public GameObject uiPrompt;  
     private PlayerInput playerInput;
 
     private void Awake()
