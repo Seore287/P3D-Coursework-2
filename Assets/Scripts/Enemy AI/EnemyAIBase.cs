@@ -140,98 +140,88 @@ public class EnemyAIBase : MonoBehaviour
         animator.SetBool("IsWalking", true);
     }
 
-
     private void ChaseBehavior()
-{
-    animator.SetBool("IsWalking", false);
-    animator.SetBool("IsRunning", true);
+    {
+        animator.SetBool("IsWalking", false);
+        animator.SetBool("IsRunning", true);
     
-    enemyAgent.SetDestination(player.position);
+        enemyAgent.SetDestination(player.position);
 
-    float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-    // Check if the player is out of sight
-    if (distanceToPlayer > sightRange)
-    {
-        // Reset the attack animation and transitions when the player is out of sight
-        animator.SetBool("IsAttacking", false); // Ensure it stops attacking
-        animator.SetBool("IsRunning", false); // Ensure it stops running
-
-        // Transition back to patrolling
-        isChasing = false;
-        currentState = AIState.Patrolling;
-        enemyAgent.speed = patrolSpeed;
-
-        // Set the patrol point
-        NextPatrolPoint();
-    }
-}
-
-
-    private void AttackBehavior()
-{
-    if (!isAttacking)
-    {
-        isAttacking = true;
-        enemyAgent.isStopped = true; // Stop enemy movement
-        animator.SetTrigger("Attack");
-
-        StartCoroutine(PerformAttack());
-    }
-    
-    // If player moves out of attack range, return to chase or patrol
-    if (Vector3.Distance(transform.position, player.position) > attackRange)
-    {
-        isAttacking = false;
-        enemyAgent.isStopped = false;
-
-        if (Vector3.Distance(transform.position, player.position) > sightRange)
+        if (distanceToPlayer > sightRange)
         {
-            Debug.Log("Player left attack and sight range. Returning to patrol.");
+            animator.SetBool("IsAttacking", false); 
+            animator.SetBool("IsRunning", false); 
+            
+            // Transition back to patrolling
+            isChasing = false;
             currentState = AIState.Patrolling;
             enemyAgent.speed = patrolSpeed;
+
             NextPatrolPoint();
         }
-        else
-        {
-            Debug.Log("Player out of attack range. Resuming chase.");
-            currentState = AIState.Chasing;
-            enemyAgent.speed = chaseSpeed;
-        }
     }
-}
 
-
-private IEnumerator PerformAttack()
-{
-    yield return new WaitForSeconds(0.25f); 
-    if (Vector3.Distance(transform.position, player.position) <= attackRange)
+    private void AttackBehavior()
     {
-        if (player.TryGetComponent<PlayerStats>(out var playerStats))
+        if (!isAttacking)
         {
-            Debug.Log("Enemy hit the player!");
-            playerStats.TakeDamage(playerDamage);
+            isAttacking = true;
+            enemyAgent.isStopped = true; // Stop enemy movement
+            animator.SetTrigger("Attack");
+
+            StartCoroutine(PerformAttack());
+        }
+        
+        // If player moves out of attack range, return to chase or patrol
+        if (Vector3.Distance(transform.position, player.position) > attackRange)
+        {
+            isAttacking = false;
+            enemyAgent.isStopped = false;
+            
+            if (Vector3.Distance(transform.position, player.position) > sightRange)
+            {
+                Debug.Log("Player left attack and sight range. Returning to patrol.");
+                currentState = AIState.Patrolling;
+                enemyAgent.speed = patrolSpeed;
+                NextPatrolPoint();
+            }
+            else
+            {
+                Debug.Log("Player out of attack range. Resuming chase.");
+                currentState = AIState.Chasing;
+                enemyAgent.speed = chaseSpeed;
+            }
         }
     }
+    
+    private IEnumerator PerformAttack()
+    {
+        yield return new WaitForSeconds(0.25f); 
+        if (Vector3.Distance(transform.position, player.position) <= attackRange)
+        {
+            if (player.TryGetComponent<PlayerStats>(out var playerStats))
+            {
+                Debug.Log("Enemy hit the player!");
+                playerStats.TakeDamage(playerDamage);
+            }
+        }
+        
+        // Wait for animation time before resetting attack state
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); 
 
-   // Wait for animation time before resetting attack state
-    yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); 
+        // Reset attack-related states after attack completes
+        isAttacking = false;
+        animator.SetBool("IsAttacking", false); 
 
-    // Reset attack-related states after attack completes
-    isAttacking = false;
-    animator.SetBool("IsAttacking", false); // Reset IsAttacking in Animator
-
-    enemyAgent.isStopped = false;
-}
-
-
-
+        enemyAgent.isStopped = false;
+    } 
 
     private void NextPatrolPoint()
     {
         if (patrolPoints.Length == 0) return;
 
-        // Only set destination if NavMeshAgent is valid
         if (enemyAgent != null && enemyAgent.isOnNavMesh)
         {
             enemyAgent.destination = patrolPoints[currentPatrolIndex].position;
