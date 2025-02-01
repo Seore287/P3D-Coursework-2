@@ -80,7 +80,6 @@ public class PlayerStats : MonoBehaviour
     {
         currentXP += xp;
 
-        // Check if XP exceeds the current level's max XP
         if (currentXP >= maxXP)
         {
             LevelUp();
@@ -89,8 +88,8 @@ public class PlayerStats : MonoBehaviour
 
     private void LevelUp()
     {
-        currentXP -= maxXP; // Carry over excess XP to the next level
-        maxXP += 50;        // Example: Increase max XP for each level
+        currentXP -= maxXP; 
+        maxXP += 50;        
     }
 
 
