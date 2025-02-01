@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
@@ -7,13 +8,14 @@ public class PlayerStats : MonoBehaviour
     [Header("Player Stats Settings")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int maxStamina = 50;
-    [SerializeField] private int maxXP = 100; // Maximum XP for current level
+    [SerializeField] private int maxXP = 100; 
     [SerializeField] private float healthRecoveryRate = 1f;
     [SerializeField] private float staminaRecoveryRate = 5f;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject gameOver;
     [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private TMP_Text xpText;
 
     private int currentHealth;
     private int currentStamina;
@@ -60,6 +62,8 @@ public class PlayerStats : MonoBehaviour
             currentStamina = Mathf.Min(currentStamina + Mathf.RoundToInt(staminaRecoveryRate * Time.deltaTime), maxStamina);
         }
 
+        UpdateXPText();
+
         if (currentHealth <= 0 && !hasDied)
         {
             Die();
@@ -92,6 +96,13 @@ public class PlayerStats : MonoBehaviour
         maxXP += 50;        
     }
 
+    private void UpdateXPText() 
+    {
+        if (xpText != null) 
+        {
+            xpText.text = "XP: " + currentXP;
+        }
+    }
 
     public void TakeDamage(int damage)
     {
