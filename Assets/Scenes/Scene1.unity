@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 512335864}
   m_HandleRect: {fileID: 512335863}
   m_Direction: 2
-  m_Value: -0.00000031510584
+  m_Value: -0.0000028359525
   m_Size: 0.8189169
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5014,7 +5014,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545692686}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014774951, y: -0.71738243, z: -0.015221068, w: 0.6963566}
+  m_LocalRotation: {x: -0.01477493, y: -0.71738243, z: -0.015221063, w: 0.69635665}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11807,7 +11807,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127366494}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03471326, y: -0.7166522, z: -0.035761397, w: 0.6956477}
+  m_LocalRotation: {x: -0.03471325, y: -0.71665215, z: -0.03576138, w: 0.6956478}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14639,7 +14639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0.98, y: 1}
-  m_AnchoredPosition: {x: 0.0010229967, y: 193.69739}
+  m_AnchoredPosition: {x: 0.00012550165, y: 193.6979}
   m_SizeDelta: {x: -28.999992, y: 677}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1550411072
@@ -31858,7 +31858,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 519205417}
   m_HandleRect: {fileID: 519205416}
   m_Direction: 0
-  m_Value: -0.000046641926
+  m_Value: -0.0000058302408
   m_Size: 0.97001827
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -37405,7 +37405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874308409}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.005308207, y: -0.7175231, z: 0.005468484, w: 0.6964931}
+  m_LocalRotation: {x: 0.005308184, y: -0.71752304, z: 0.0054684933, w: 0.69649315}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

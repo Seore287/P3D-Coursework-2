@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (healthTextPrefab != null)
         {
-            healthTextPrefab.gameObject.SetActive(false); // Hide health UI
+            healthTextPrefab.gameObject.SetActive(false); 
         }
 
         enemy = GetComponent<EnemyAIBase>();
