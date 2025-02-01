@@ -211,7 +211,7 @@ public class EnemyAIBase : MonoBehaviour
         // Wait for animation time before resetting attack state
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); 
 
-        // Reset attack-related states after attack completes
+        // Reset attack to the related states after attack is completed
         isAttacking = false;
         animator.SetBool("IsAttacking", false); 
 
