@@ -1385,10 +1385,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.1145109
-  m_Height: 2.2290218
+  m_Radius: 0.57208216
+  m_Height: 2.4115508
   m_Direction: 1
-  m_Center: {x: 0.011615724, y: 1.0699991, z: 0.19005917}
+  m_Center: {x: 0.07744481, y: 0.9787345, z: 0.080474354}
 --- !u!195 &4604467052779244609
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1425,9 +1425,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sightRange: 8
   attackRange: 3
-  patrolSpeed: 2
+  patrolSpeed: 1.5
   chaseSpeed: 2
-  idleDuration: 2
+  idleDuration: 1
   playerDamage: 5
   patrolPoints:
   - {fileID: 0}

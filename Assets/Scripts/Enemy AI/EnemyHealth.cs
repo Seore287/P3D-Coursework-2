@@ -36,6 +36,11 @@ public class EnemyHealth : MonoBehaviour
 
         ShowDamage();
 
+        if (enemy.animator != null) 
+        {
+            enemy.animator.SetTrigger("EnemyHit");
+        }
+
         if (currentHealth <= 0)
         {
             Die();
